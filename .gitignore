@@ -1,0 +1,4 @@
+# Compiled Python bytecode
+*.py[cod]
+.env
+db.sqlite3

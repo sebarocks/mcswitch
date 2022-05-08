@@ -1,0 +1,16 @@
+<h2>Hola {{ user }}</h2>
+
+<p>El server esta en estado: {{estado}}</p>
+{% if statuscode == 16 %}
+<form action="{% url 'apagar' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Apagar server</button>
+</form>
+{% elif statuscode == 80 %}
+<form action="{% url 'encender' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Encender server</button>
+</form>
+{% else %}
+<p>Nada que hacer. Debe esperar :)</p>
+{% endif %}
