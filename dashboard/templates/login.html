@@ -1,31 +1,109 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+      font-family: "minecraftia";
+      src: url("Minecraftia-Regular.woff2") format("woff2");
+      src: url("Minecraftia-Regular.woff") format("woff");
+    }
+
+    body {
+      background-image: url("{% static 'bg-mc-blur.png' %}");
+      background-size: 100% 100vh;
+    }
+
+    .centred {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .col {
+      flex-direction: column;
+    }
+
+    .max-width-100 {
+      max-width: 100%
+    }
+
+    .blurred-white {
+      background-color: hsla(0, 0%, 100%, 0.3);
+    }
+
+    .rounded {
+      border-radius: 20px;
+    }
+
+    .p-3 {
+      padding: 1rem;
+    }
+
+    .transparent-input {
+      border: 0px solid #fff;
+      outline: none !important;
+      background: #ffffffb0;
+    }
+
+    .bg-green {
+      background-color:rgba(39, 240, 39, 0.459);
+    }
+
+    .font-1 {
+      font-family: 'minecraftia', monospace;
+    }
+
+    .font-2 {
+      font-family: monospace;
+    }
+
+    .w-25 {
+      width: 25px;
+    }
+
+    .mw-450 {
+      max-width: 450px;
+    }
+  </style>
+  <title>Inicio de sesión - Servidor de Sebita</title>
 </head>
+
 <body>
-    
-      <form method="post" action="{% url 'login' %}">
+
+  <header class="centred">
+    <img class="max-width-100" src="{% static 'minecraft-all-my-homies.png' %}" alt="Banner-Minecraft">
+  </header>
+  <main class="centred">
+    <article class="blurred-white rounded centred col p-3 mw-450">
+      <img class="p-3" src="{% static 'creeper.png' %}" alt="Creeper-Minecraft">
+      <form class="centred col" method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <table>
           <tr>
-            <td>Usuario</td>
-            <td><input type="text" name="username" id="username"></td>
+            <td class="p-3">
+              <input class="transparent-input p-3 rounded font-1" title="Usuario" placeholder="Creeper22" type="text" name="username" id="username">
+            </td>
           </tr>
           <tr>
-            <td>Contraseña</td>
-            <td>
-              <input type="password" name="password" id="password">
+            <td class="p-3">
+              <input class="transparent-input p-3 rounded font-1" title="Contraseña" placeholder="********" type="password" name="password" id="password">
             </td>
           </tr>
         </table>
-        <input type="submit" value="login" />
+        <button class="font-2 bg-green p-3 rounded transparent-input centred" type="submit" value="login" >
+          <img class="w-25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABD0lEQVRoge2ZSwrCMBCGP0V0o3gBXXsI9VZeyiK4duGNVLAeoC5aFTWNbd7S+WDIIsz0/8mD0AFBEISUmQM7IAeKwJEDe2BhI/4cQfhnXCotrdklIP4RWZ3InsZADkxamvZFDkxVEzoDhR8txii19kOrcI0YiI2JgSXlflTFOkD+GyaHWJejy7PNl0OcJGIgNp00sHKu4kWQa9SmpvO6ndxCSSEG+H7b/MLq7aMqVkfTw9ZEtA6r78gWio0YiM3fGxg4rhfq5nriYgWG1TjynKPEhYENMK5GnzlK5M9cbHQGbsFU/OZaN6EzcPQgxJSDSdKCsrkQuzdwAmYmBqDsjGSUSxha+BXY2ogXBEHwzx09RLlp9XsdQwAAAABJRU5ErkJggg=="/>
+           &nbsp;Login
+        </button>
         <input type="hidden" name="next" value="{{ next }}" />
       </form>
-
+    </article>
+  </main>
 
 </body>
+
 </html>
