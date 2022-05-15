@@ -1,6 +1,7 @@
 <p align="center">
   <a href="https://github.com/sebarocks/mcswitch" rel="noopener">
- <img src="./docs/img/banner-cellphone.png" alt="banner-mobile"></a>
+    <img src="./docs/img/banner-cellphone.png" alt="banner-mobile" width="300">
+  </a>
 </p>
 
 <div align="center">
@@ -12,12 +13,16 @@
 </div>
 
 <p align="center">
-  <a href="https://github.com/sebarocks/mcswitch" rel="noopener">
-  <img src="./docs/img/banner-desktop.png" alt="Banner-Desktop"></a>
+  Un servicio para encender y apagar una instancia EC2. Yo lo uso para manejar mi server minecraft :)
 </p>
 
+## Pantallazos / Capturas de pantalla.
+
+### Version de escritorio.
+
 <p align="center">
-  Un servicio para encender y apagar una instancia EC2. Yo lo uso para manejar mi server minecraft :)
+  <a href="https://github.com/sebarocks/mcswitch" rel="noopener">
+  <img src="./docs/img/banner-desktop.png" alt="Banner-Desktop"></a>
 </p>
 
 ## Referencias
