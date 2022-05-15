@@ -1,6 +1,24 @@
+<p align="center">
+  <a href="https://github.com/sebarocks/mcswitch" rel="noopener">
+ <img src="./docs/img/banner-cellphone.png" alt="banner-mobile"></a>
+</p>
+
+<div align="center">
+
 # MCSWITCH
 
-Un servicio para encender y apagar una instancia EC2. Yo lo uso para manejar mi server minecraft :)
+[![EC2](https://img.shields.io/badge/EC2-AWS-orange.svg)](https://aws.amazon.com/)
+
+</div>
+
+<p align="center">
+  <a href="https://github.com/sebarocks/mcswitch" rel="noopener">
+  <img src="./docs/img/banner-desktop.png" alt="Banner-Desktop"></a>
+</p>
+
+<p align="center">
+  Un servicio para encender y apagar una instancia EC2. Yo lo uso para manejar mi server minecraft :)
+</p>
 
 ## Referencias
 
