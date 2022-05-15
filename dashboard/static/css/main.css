@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "minecraftia";
+    src: url("../fonts/Minecraftia-Regular.woff2") format("woff2");
+    src: url("../fonts/Minecraftia-Regular.woff") format("woff");
+  }
+
+  body {
+    background-image: url("../bg-mc-blur.png");
+    background-size: 100% 100vh;
+  }
+
+  .centred {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .col {
+    flex-direction: column;
+  }
+
+  .max-width-100 {
+    max-width: 100%
+  }
+
+  .blurred-white {
+    background-color: hsla(0, 0%, 100%, 0.3);
+  }
+
+  .rounded {
+    border-radius: 20px;
+  }
+
+  .p-3 {
+    padding: 1rem;
+  }
+
+  .transparent-input {
+    border: 0px solid #fff;
+    outline: none !important;
+    background: #ffffffb0;
+  }
+
+  .bg-green {
+    background-color:rgba(39, 240, 39, 0.459);
+  }
+
+  .font-1 {
+    font-family: 'minecraftia', monospace;
+  }
+
+  .font-2 {
+    font-family: monospace;
+  }
+
+  .w-25 {
+    width: 25px;
+  }
+
+  .mw-450 {
+    max-width: 450px;
+  }
