@@ -28,7 +28,7 @@ def index(request):
         context = {
             'user' : request.user.username,
             'estado': mcServer.getState(),
-            'statuscode': mcServer.getStatusCode
+            'statuscode': mcServer.getStatusCode()
         }
         return render(request,"dashboard.html",context)
     else:
