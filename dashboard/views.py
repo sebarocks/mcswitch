@@ -3,10 +3,12 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+from dashboard.mcserver import MCQueryController
 from dashboard.awscontroller import AWSController
 
 
-mcServer = AWSController()
+mcAws = AWSController()
+mcServer = MCQueryController(mcAws)
 
 
 def loginpage(request):
@@ -27,8 +29,9 @@ def index(request):
     if request.user.is_authenticated:
         context = {
             'user' : request.user.username,
-            'estado': mcServer.getState(),
-            'statuscode': mcServer.getStatusCode()
+            'estado': mcAws.getState(),
+            'statuscode': mcAws.getStatusCode(),
+            'players': mcServer.players()
         }
         return render(request,"dashboard.html",context)
     else:
@@ -37,7 +40,7 @@ def index(request):
 @login_required
 def encender(request):
     if request.user.is_authenticated and request.method == 'POST':
-        mcServer.instance.start()
+        mcAws.start()
         return redirect('encendido')
     else:
         return redirect('logout')
@@ -45,7 +48,7 @@ def encender(request):
 @login_required
 def apagar(request):
     if request.user.is_authenticated and request.method == 'POST':
-        mcServer.instance.stop()
+        mcAws.stop()
         return redirect('apagado')
     else:
         return redirect('logout')

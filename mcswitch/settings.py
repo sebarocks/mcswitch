@@ -133,4 +133,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # User Variables
 
 LOGIN_URL = '/login'
-SESSION_COOKIE_AGE = 30
+SESSION_COOKIE_AGE = 60 * 10

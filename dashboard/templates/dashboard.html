@@ -30,6 +30,18 @@
             {% else %}
             <p>Nada que hacer. Debe esperar :)</p>
             {% endif %}
+        </article>        
+    </main>
+    {% if players %}
+    <main class="centred">
+        <article class="blurred-green rounded centred col p-3 mw-450">
+            <h3>Jugadores Conectados:</h3>
+            <ul>
+            {% for player in players %}
+                <li>{{player}}</li>
+            {% endfor %}
+            </ul>
         </article>
     </main>
+    {% endif %}
 </body>

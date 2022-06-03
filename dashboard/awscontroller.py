@@ -13,15 +13,23 @@ EC2_STATE = {
 class AWSController():
 
     def __init__(self) -> None:
-        self.boto = boto3.resource('ec2')
-        self.instance = self.boto.Instance(os.environ.get('INSTANCE_ID'))
+        self.ec2 = boto3.resource('ec2')
+        self.instanceID = os.environ.get('INSTANCE_ID')
 
     def getState(self):
-        status = self.instance.state
-        return EC2_STATE[status['Code']]
+        status = self.getInstance().state
+        return status['Name']
 
     def getStatusCode(self):
-        status = self.instance.state
+        status = self.getInstance().state
+        print('aws code',status['Code'])
         return status['Code']
 
+    def stop(self):
+        self.getInstance().stop()
+
+    def start(self):
+        self.getInstance().start()
     
+    def getInstance(self):
+        return self.ec2.Instance(self.instanceID)
