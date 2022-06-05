@@ -9,4 +9,5 @@ urlpatterns = [
     path('apagar', views.apagar, name='apagar'),
     path('encendido', views.encendido, name='encendido'),
     path('apagado', views.apagado, name='apagado'),
+    path('logout', views.logoutpage, name='logout'),
 ]

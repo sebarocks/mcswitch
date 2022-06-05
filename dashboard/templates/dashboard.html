@@ -1,16 +1,47 @@
-<h2>Hola {{ user }}</h2>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<p>El server esta en estado: {{estado}}</p>
-{% if statuscode == 16 %}
-<form action="{% url 'apagar' %}" method="post">
-    {% csrf_token %}
-    <button type="submit">Apagar server</button>
-</form>
-{% elif statuscode == 80 %}
-<form action="{% url 'encender' %}" method="post">
-    {% csrf_token %}
-    <button type="submit">Encender server</button>
-</form>
-{% else %}
-<p>Nada que hacer. Debe esperar :)</p>
-{% endif %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Servidor de Minecraft</title>
+</head>
+
+<body>
+    <header class="centred">
+        <h2>Hola {{ user }}</h2>
+    </header>
+    <main class="centred">
+        <article class="blurred-green rounded centred col p-3 mw-450">
+            <p>El server esta en estado: <b>{{estado}}</b></p>
+            {% if statuscode == 16 %}
+            <form action="{% url 'apagar' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Apagar server</button>
+            </form>
+            {% elif statuscode == 80 %}
+            <form action="{% url 'encender' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Encender server</button>
+            </form>
+            {% else %}
+            <p>Nada que hacer. Debe esperar :)</p>
+            {% endif %}
+        </article>        
+    </main>
+    {% if players %}
+    <main class="centred">
+        <article class="blurred-green rounded centred col p-3 mw-450">
+            <h3>Jugadores Conectados:</h3>
+            <ul>
+            {% for player in players %}
+                <li>{{player}}</li>
+            {% endfor %}
+            </ul>
+        </article>
+    </main>
+    {% endif %}
+</body>

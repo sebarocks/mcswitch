@@ -1,2 +1,20 @@
-Orden de apagado enviada <br>
-<a href="{% url 'index' %}">Volver</a> <br> {{res}}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Apagando</title>
+</head>
+
+<body>
+    <main class="centred">
+        <article class="blurred-green rounded centred col p-3 mw-450">
+            Orden de apagado enviada <br>
+            <a href="{% url 'index' %}">Volver</a> <br> {{res}}
+        </article>
+    </main>
+</body>

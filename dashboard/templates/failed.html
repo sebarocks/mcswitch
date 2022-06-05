@@ -1,2 +1,20 @@
-Login incorrecto xd <br>
-<a href="{% url 'login' %}" >Reintentar</a>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Error</title>
+</head>
+
+<body>
+    <main class="centred">
+        <article class="blurred-green rounded centred col p-3 mw-450">
+            Login incorrecto xd <br>
+            <a href="{% url 'login' %}">Reintentar</a>
+        </article>
+    </main>
+</body>
