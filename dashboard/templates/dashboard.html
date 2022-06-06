@@ -11,16 +11,20 @@
 </head>
 
 <body>
-    <header class="centred">
-        <h2>Hola {{ user }}</h2>
-    </header>
-    <main class="centred">
-        <article class="blurred-green rounded centred col p-3 mw-450">
-            <p>El server esta en estado: <b>{{estado}}</b></p>
+    <main class="centred mt-50">
+        <article class="blurred-white rounded centred col p-3 mw-450">
+            <div class="px-15 full-rounded blurred-white mt-minus50 flex centred">
+                <img class="full-rounded width40px mr-10" src="{% static 'personaje_1.png' %}" alt="Profile-Pic">
+                <h2 class="font-1">{{ user }}</h2>
+            </div>
+            <h1>
+                <b class="capitalize font-1">{{estado}}</b>
+            </h1>
+            <p class="font-1 mt-minus28">El server esta <span id="estado"></span></p>
             {% if statuscode == 16 %}
             <form action="{% url 'apagar' %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Apagar server</button>
+                <button class="font-2 font-white bg-red p-3 rounded transparent-input centred" type="submit">Apagar</button>
             </form>
             {% elif statuscode == 80 %}
             <form action="{% url 'encender' %}" method="post">
@@ -32,8 +36,9 @@
             {% endif %}
         </article>        
     </main>
+    <br />
     {% if players %}
-    <main class="centred">
+    <footer class="centred">
         <article class="blurred-green rounded centred col p-3 mw-450">
             <h3>Jugadores Conectados:</h3>
             <ul>
@@ -42,6 +47,18 @@
             {% endfor %}
             </ul>
         </article>
-    </main>
+    </footer>
     {% endif %}
 </body>
+<script>
+    estados = {
+        'pending': 'pendiente',
+        'running': 'corriendo',
+        'shutting-down': 'apagando',
+        'terminated': 'terminado',
+        'stopping': 'deteniendo',
+        'stopped': 'detenido'
+    }
+    document.getElementById('estado').innerText = estados.{{estado}};
+</script>
+</html>

@@ -20,6 +20,30 @@
     flex-direction: column;
   }
 
+  .mt-50 {
+    margin-top: 50px;
+  }
+
+  .mt-minus28 {
+    margin-top: -28px;
+  }
+
+  .mt-minus50 {
+    margin-top: -50px;
+  }
+
+  .px-15 {
+  padding-inline: 15px;
+  }
+
+  .width40px {
+    width: 40px;
+  }
+
+  .mr-10 {
+    margin-right: 10px;
+  }
+
   .max-width-100 {
     max-width: 100%
   }
@@ -36,6 +60,17 @@
     border-radius: 20px;
   }
 
+  .full-rounded {
+    border-radius: 9999px;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .capitalize {
+    text-transform: capitalize;
+  }
   .p-3 {
     padding: 1rem;
   }
@@ -48,6 +83,14 @@
 
   .bg-green {
     background-color:rgba(39, 240, 39, 0.459);
+  }
+
+  .bg-red {
+    background-color:rgba(240, 39, 39, 0.759);
+  }
+
+  .font-white {
+    color: #fff;
   }
 
   .font-1 {
