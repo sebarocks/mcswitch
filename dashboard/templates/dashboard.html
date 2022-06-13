@@ -17,23 +17,31 @@
                 <img class="full-rounded width40px mr-10" src="{% static 'personaje_1.png' %}" alt="Profile-Pic">
                 <h2 class="font-1">{{ user }}</h2>
             </div>
-            <h1>
-                <b class="capitalize font-1">{{estado}}</b>
-            </h1>
-            <p class="font-1 mt-minus28">El server está <span id="estado"></span></p>
-            {% if statuscode == 16 %}
-            <form action="{% url 'apagar' %}" method="post">
-                {% csrf_token %}
-                <button class="font-2 font-white bg-red p-3 rounded transparent-input centred" type="submit">Apagar</button>
-            </form>
-            {% elif statuscode == 80 %}
-            <form action="{% url 'encender' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Encender server</button>
-            </form>
-            {% else %}
-            <p>Nada que hacer. Debe esperar :)</p>
-            {% endif %}
+            <section class="centred col py-3rem">
+                <h1 class="pb-10px">
+                    <b class="capitalize font-1 is-size-2">{{estado}}</b>
+                </h1>
+                <p class="font-1 mt-minus28 bold">El server está <span id="estado"></span></p>
+            </section>
+            <section class="centred col pb-3rem full-width">
+                {% if statuscode == 16 %}
+                <form action="{% url 'apagar' %}" method="post" class="full-width">
+                    {% csrf_token %}
+                    <button class="full-width font-white bg-red p-3 rounded transparent-input centred" type="submit">
+                        <span id="spanTextTurnOnOff" class="font-1 mb-minus5px is-size-6">Apagar</span>
+                    </button>
+                </form>
+                {% elif statuscode == 80 %}
+                <form action="{% url 'encender' %}" method="post" class="full-width">
+                    {% csrf_token %}
+                    <button class="full-width font-white bg-green p-3 rounded transparent-input centred" type="submit">
+                        <span id="spanTextTurnOnOff" class="font-1 mb-minus5px is-size-6">Encender</span>
+                    </button>
+                </form>
+                {% else %}
+                <p>Nada que hacer. Debe esperar :)</p>
+                {% endif %}
+            </section>
         </article>        
     </main>
     <br />
@@ -60,5 +68,9 @@
         'stopped': 'detenido'
     }
     document.getElementById('estado').innerText = estados.{{estado}};
+    isOn = document.getElementById('spanTextTurnOnOff') === 'Encender' ? true : false;
+    /* 
+    TODO: DARK MODE FOR TURN ON AND OFF.
+    */
 </script>
 </html>
