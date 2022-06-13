@@ -20,7 +20,7 @@
             <h1>
                 <b class="capitalize font-1">{{estado}}</b>
             </h1>
-            <p class="font-1 mt-minus28">El server esta <span id="estado"></span></p>
+            <p class="font-1 mt-minus28">El server está <span id="estado"></span></p>
             {% if statuscode == 16 %}
             <form action="{% url 'apagar' %}" method="post">
                 {% csrf_token %}
@@ -54,9 +54,9 @@
     estados = {
         'pending': 'pendiente',
         'running': 'corriendo',
-        'shutting-down': 'apagando',
+        'shutting-down': 'apagándose',
         'terminated': 'terminado',
-        'stopping': 'deteniendo',
+        'stopping': 'deteniéndose',
         'stopped': 'detenido'
     }
     document.getElementById('estado').innerText = estados.{{estado}};
