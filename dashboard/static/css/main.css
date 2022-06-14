@@ -20,6 +20,59 @@
     flex-direction: column;
   }
 
+  .mt-50 {
+    margin-top: 50px;
+  }
+
+  .py-3rem {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .pb-10px {
+    padding-bottom: 10px;
+  }
+
+  .is-size-2 { /* Like Bulma CSS */
+    font-size: 2.5rem;
+  }
+
+  .is-size-5 { /* Like Bulma CSS */
+    font-size: 1.25rem;
+  }
+
+  .is-size-6 { /* Like Bulma CSS */
+    font-size: 1rem;
+  }
+
+  .pb-3rem {
+    padding-bottom: 3rem;
+  }
+
+  .mt-minus28 {
+    margin-top: -28px;
+  }
+
+  .mt-minus50 {
+    margin-top: -50px;
+  }
+
+  .px-15 {
+  padding-inline: 15px;
+  }
+
+  .width40px {
+    width: 40px;
+  }
+
+  .mr-10 {
+    margin-right: 10px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
   .max-width-100 {
     max-width: 100%
   }
@@ -28,12 +81,36 @@
     background-color: hsla(0, 0%, 100%, 0.3);
   }
 
+  .blurred-black {
+    background-color: hsla(0, 0%, 0%, 0.3);
+  }
+
   .blurred-green {
     background-color: hsla(106, 100%, 75%, 0.582);
   }
 
   .rounded {
     border-radius: 20px;
+  }
+
+  .full-rounded {
+    border-radius: 9999px;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .capitalize {
+    text-transform: capitalize;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .mb-minus5px {
+    margin-bottom: -5px;
   }
 
   .p-3 {
@@ -48,6 +125,14 @@
 
   .bg-green {
     background-color:rgba(39, 240, 39, 0.459);
+  }
+
+  .bg-red {
+    background-color:rgba(240, 39, 39, 0.759);
+  }
+
+  .font-white {
+    color: #fff;
   }
 
   .font-1 {

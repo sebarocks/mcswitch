@@ -11,29 +11,42 @@
 </head>
 
 <body>
-    <header class="centred">
-        <h2>Hola {{ user }}</h2>
-    </header>
-    <main class="centred">
-        <article class="blurred-green rounded centred col p-3 mw-450">
-            <p>El server esta en estado: <b>{{estado}}</b></p>
-            {% if statuscode == 16 %}
-            <form action="{% url 'apagar' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Apagar server</button>
-            </form>
-            {% elif statuscode == 80 %}
-            <form action="{% url 'encender' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Encender server</button>
-            </form>
-            {% else %}
-            <p>Nada que hacer. Debe esperar :)</p>
-            {% endif %}
+    <main class="centred mt-50">
+        <article class="blurred-white rounded centred col p-3 mw-450">
+            <div class="px-15 full-rounded blurred-white mt-minus50 flex centred">
+                <img class="full-rounded width40px mr-10" src="{% static 'personaje_1.png' %}" alt="Profile-Pic">
+                <h2 class="font-1">{{ user }}</h2>
+            </div>
+            <section class="centred col py-3rem">
+                <h1 class="pb-10px">
+                    <b class="capitalize font-1 is-size-2">{{estado}}</b>
+                </h1>
+                <p class="font-1 mt-minus28 bold">El server está <span id="estado"></span></p>
+            </section>
+            <section class="centred col pb-3rem full-width">
+                {% if statuscode == 16 %}
+                <form action="{% url 'apagar' %}" method="post" class="full-width">
+                    {% csrf_token %}
+                    <button class="full-width font-white bg-red p-3 rounded transparent-input centred" type="submit">
+                        <span id="spanTextTurnOnOff" class="font-1 mb-minus5px is-size-6">Apagar</span>
+                    </button>
+                </form>
+                {% elif statuscode == 80 %}
+                <form action="{% url 'encender' %}" method="post" class="full-width">
+                    {% csrf_token %}
+                    <button class="full-width font-white bg-green p-3 rounded transparent-input centred" type="submit">
+                        <span id="spanTextTurnOnOff" class="font-1 mb-minus5px is-size-6">Encender</span>
+                    </button>
+                </form>
+                {% else %}
+                <p>Nada que hacer. Debe esperar :)</p>
+                {% endif %}
+            </section>
         </article>        
     </main>
+    <br />
     {% if players %}
-    <main class="centred">
+    <footer class="centred">
         <article class="blurred-green rounded centred col p-3 mw-450">
             <h3>Jugadores Conectados:</h3>
             <ul>
@@ -42,6 +55,22 @@
             {% endfor %}
             </ul>
         </article>
-    </main>
+    </footer>
     {% endif %}
 </body>
+<script>
+    estados = {
+        'pending': 'pendiente',
+        'running': 'corriendo',
+        'shutting-down': 'apagándose',
+        'terminated': 'terminado',
+        'stopping': 'deteniéndose',
+        'stopped': 'detenido'
+    }
+    document.getElementById('estado').innerText = estados.{{estado}};
+    isOn = document.getElementById('spanTextTurnOnOff') === 'Encender' ? true : false;
+    /* 
+    TODO: DARK MODE FOR TURN ON AND OFF.
+    */
+</script>
+</html>
