@@ -10,4 +10,5 @@ urlpatterns = [
     path('encendido', views.encendido, name='encendido'),
     path('apagado', views.apagado, name='apagado'),
     path('logout', views.logoutpage, name='logout'),
+    path('api/status', views.serverState,name='api.state')
 ]
