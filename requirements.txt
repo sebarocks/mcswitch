@@ -1,5 +1,5 @@
-django==4.0.7
-django-environ==0.8.1
-boto3==1.22.9
-mcstatus==9.0.4
-djangorestframework==3.13.1
+django
+django-environ
+boto3
+mcstatus
+djangorestframework
